@@ -7,3 +7,9 @@ Pakr
 
 
 [rust]: https://www.rust-lang.org/
+
+
+Documentation
+-------------
+
+- [Development](doc/development.md)

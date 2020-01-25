@@ -1,0 +1,7 @@
+Development
+===========
+
+Execution
+---------
+
+    cargo run
