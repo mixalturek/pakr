@@ -84,6 +84,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "libbackend"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "failure",
+ "fern",
+ "log",
+]
+
+[[package]]
 name = "libc"
 version = "0.2.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -121,9 +131,8 @@ dependencies = [
 name = "pakr"
 version = "0.1.0"
 dependencies = [
- "chrono",
  "failure",
- "fern",
+ "libbackend",
  "log",
 ]
 
