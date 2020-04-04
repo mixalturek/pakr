@@ -2,8 +2,14 @@ use failure::Error;
 
 use libbackend::logging;
 
+use crate::config::AppConfig;
+
+pub mod config;
+
 pub fn run() -> Result<(), Error> {
-    logging::init()?;
+    let config = AppConfig::new()?;
+
+    logging::init(&config.logging)?;
 
     logging::log_life_cycle_event("STARTING APPLICATION");
 

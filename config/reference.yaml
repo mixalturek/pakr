@@ -1,0 +1,9 @@
+logging:
+  # Default logging level if a concrete module is not specified.
+  default_level: debug
+
+  # Optional: Log level per module.
+  # modules:
+     # pakr: debug
+     # libbackend: debug
+     # libbackend::logging: debug

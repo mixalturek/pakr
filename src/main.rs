@@ -7,6 +7,9 @@ fn main() {
         Ok(_x) => 0,
         Err(e) => {
             error!("Application execution failed: {}", e);
+
+            // TODO: Logging may not be initialized.
+            eprintln!("ERROR: Application execution failed: {}", e);
             1
         }
     };
