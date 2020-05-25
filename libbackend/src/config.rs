@@ -6,7 +6,7 @@ use serde::de::Error;
 
 /// Configuration of logging.
 #[derive(Clone, Debug, Deserialize)]
-pub struct Logging {
+pub struct LoggingConfig {
     /// Default logging level to be used when no concrete one is specified.
     pub default_level: LevelFilterSerde,
 
@@ -42,3 +42,10 @@ impl From<&LevelFilterSerde> for LevelFilter {
     }
 }
 
+
+/// Configuration of the server and its binding.
+#[derive(Clone, Debug, Deserialize)]
+pub struct ServerConfig {
+    pub listen_address: String,
+    pub listen_port: String,
+}

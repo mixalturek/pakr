@@ -1,12 +1,14 @@
 use config::{Config, ConfigError, Environment, File};
 use serde::Deserialize;
 
-use libbackend::config::Logging;
+use libbackend::config::LoggingConfig;
+use libbackend::config::ServerConfig;
 
 /// Top level structure for configuration of the application.
 #[derive(Debug, Deserialize)]
 pub struct AppConfig {
-    pub logging: Logging,
+    pub logging: LoggingConfig,
+    pub server: ServerConfig,
 }
 
 impl AppConfig {

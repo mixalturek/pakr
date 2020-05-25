@@ -9,7 +9,7 @@ use crate::config;
 
 /// Setup logging infrastructure. This function should be called at the very beginning of the
 /// application life cycle.
-pub fn init(config: &config::Logging) -> Result<(), Error> {
+pub fn init(config: &config::LoggingConfig) -> Result<(), Error> {
     let mut builder = fern::Dispatch::new()
         .format(|out, message, record| {
             out.finish(format_args!(

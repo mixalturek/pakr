@@ -13,8 +13,10 @@ members = [
 ]
 
 [dependencies]
-config = "~0.10"
-failure = "~0.1"
+config = "0.10"
+failure = "0.1"
 libbackend = { path = "libbackend" }
-log = "~0.4"
-serde = { version = "~1", features = ["derive"] }
+log = "0.4"
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "0.2", features = ["macros", "signal"] }
+warp = "0.2"

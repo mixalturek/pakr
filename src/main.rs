@@ -1,8 +1,9 @@
 use log::error;
 use log::info;
 
-fn main() {
-    let result = pakr::run();
+#[tokio::main]
+async fn main() {
+    let result = pakr::run().await;
     let exit_code = match result {
         Ok(_x) => 0,
         Err(e) => {

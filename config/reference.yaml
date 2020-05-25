@@ -7,3 +7,8 @@ logging:
      # pakr: debug
      # libbackend: debug
      # libbackend::logging: debug
+
+server:
+  # e.g. "127.0.0.1", "0.0.0.0", "[::1]"
+  listen_address: "[::1]"
+  listen_port: 3030
