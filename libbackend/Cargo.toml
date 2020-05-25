@@ -10,4 +10,3 @@ failure = "~0.1"
 fern = "~0.5"
 log = "~0.4"
 serde = { version = "~1", features = ["derive"] }
-

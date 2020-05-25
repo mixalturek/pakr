@@ -1,3 +1,5 @@
+//! Reusable configuration structures and related code.
+
 use std::collections::HashMap;
 
 use log::LevelFilter;
