@@ -45,8 +45,18 @@ pub async fn run() -> Result<(), Error> {
 }
 
 fn bind_server(config: &ServerConfig, start_time: Instant) -> Result<Sender<()>, Error> {
+    // TODO: Make the FS path configurable
+    let index = warp::get()
+        .and(warp::path::end())
+        .and(warp::fs::file("assets/index.html"));
+
+    // TODO: Make the FS path configurable
+    let assets = warp::path("assets")
+        .and(warp::fs::dir("assets"));
+
     // http get http://localhost:3030/api/status
     let status = warp::path("status")
+        .and(warp::path::end())
         .map(move || {
             let status = ServerStatus {
                 application: APPLICATION,
@@ -57,8 +67,13 @@ fn bind_server(config: &ServerConfig, start_time: Instant) -> Result<Sender<()>,
             warp::reply::json(&status)
         });
 
-    let routes = warp::path("api")
+    let api = warp::path("api")
         .and(status);
+
+    let routes = index.or(assets)
+        .or(api)
+        // TODO: Put the log to a submodule, warp::log::custom()
+        .with(warp::log(module_path!()));
 
     let listen_addr = format!("{}:{}", config.listen_address, config.listen_port)
         .parse::<std::net::SocketAddr>()?;
